@@ -74,6 +74,11 @@ class ATIDriver(object):
         # print(msg_arr)
 
         self.wrench_sensor_value.OutValue=msg_arr
+    
+    def setf_param(self, param_name, value):
+
+        if param_name == "set_tare":
+            self.ati_obj.set_tare_from_ft()
 
 def main():
     parser = argparse.ArgumentParser(description="ATI force torque sensor driver service for Robot Raconteur")

@@ -19,6 +19,9 @@ def main():
 
     #Add callback for when the wire value change
     wrench_wire.WireValueChanged += wrench_wire_cb
+    
+    #set tare
+    cli.setf_param("set_tare", 0)
 
     if (sys.version_info > (3, 0)):
         input("Server started, press enter to quit...")
