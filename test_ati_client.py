@@ -38,6 +38,7 @@ def wrench_wire_cb(w,value,time):
     # print("force.z",value['force']['z'])
     # print("==============")
 
+    # if value['force']['z'] > 1:
     statement = """
     Torque X {}
     Torque Y {}
