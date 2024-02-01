@@ -21,7 +21,7 @@ def main():
     wrench_wire.WireValueChanged += wrench_wire_cb
     
     #set tare
-    cli.setf_param("set_tare", RR.VarValue(True, "bool"))
+    # cli.setf_param("set_tare", RR.VarValue(True, "bool"))
 
     if (sys.version_info > (3, 0)):
         input("Server started, press enter to quit...")
