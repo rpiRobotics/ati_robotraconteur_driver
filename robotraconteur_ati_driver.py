@@ -51,7 +51,16 @@ class ATIDriver(object):
             st = time.time()
             if(not self._streaming): return
             res, ft, status = self.ati_obj.try_read_ft_streaming(.1)
-            self.send_sensor_val(ft)
+            if res:
+                self.send_sensor_val(ft)
+            else:
+                print("Error reading FT sensor, resetting")
+                self.ati_obj = rpi_ati_net_ft.NET_FT(self.host)
+                self.ati_obj.set_tare_from_ft()
+                print(self.ati_obj.read_ft_http())
+                print(self.ati_obj.try_read_ft_http())
+                self.ati_obj.start_streaming()
+
             elapse = time.time()-st
 
             if self.rate > elapse:
